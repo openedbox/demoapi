@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <appender name="REDIS" class="com.cwbase.logback.RedisAppender">
+        <host>redis</host>
+        <port>6379</port>
+        <key>demo-api</key>
+    </appender>
+    <root level="DEBUG">
+        <appender-ref ref="REDIS" />
+    </root>
+    <logger name="org.springframework" additivity="false" level="ERROR">
+        <appender-ref ref="REDIS" />
+    </logger>
+    <logger name="org.xnio" additivity="false" level="ERROR">
+        <appender-ref ref="REDIS" />
+    </logger>
+    <logger name="io.undertow" additivity="false" level="ERROR">
+        <appender-ref ref="REDIS" />
+    </logger>
+    <logger name="org.hibernate" additivity="false" level="ERROR">
+        <appender-ref ref="REDIS" />
+    </logger>
+    <logger name="org.apache" additivity="false" level="ERROR">
+        <appender-ref ref="REDIS" />
+    </logger>
+    <logger name="com.avcdata" additivity="false" level="DEBUG">
+        <appender-ref ref="REDIS" />
+    </logger>
+</configuration>
