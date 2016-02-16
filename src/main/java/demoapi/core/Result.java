@@ -1,13 +1,10 @@
 package demoapi.core;
 
-import lombok.Data;
-import lombok.experimental.Builder;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
-@Data
-@Builder
 public class Result {
-    private boolean success = true;
-    private String message;
-    private Object returnValue;
-    private Object times;
+    public static ResponseEntity OK(Object content){
+        return new ResponseEntity(content, HttpStatus.OK);
+    }
 }
